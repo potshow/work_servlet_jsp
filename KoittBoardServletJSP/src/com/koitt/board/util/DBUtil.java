@@ -4,8 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import com.mysql.jdbc.Statement;
+import java.sql.Statement;
 
 public class DBUtil {
 
@@ -33,7 +32,7 @@ public class DBUtil {
 	// 데이터베이스 커넥션 객체 가져오는 메서드
 	public Connection getConnection() throws ClassNotFoundException, SQLException {
 		String url = "jdbc:mysql://localhost:3306";
-		String dbName = "board";
+		String dbName = "koitt";
 		
 		// 1. 드라이버 로드
 		Class.forName("com.mysql.jdbc.Driver");
