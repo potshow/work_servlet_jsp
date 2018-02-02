@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.koitt.board.model.Command;
 import com.koitt.board.model.ListCommand;
+import com.koitt.board.model.ViewCommand;
 
 public class BoardServlet extends HttpServlet {
 	
@@ -46,6 +47,11 @@ public class BoardServlet extends HttpServlet {
 			switch (cmd) {
 				case "CMD_LIST":
 					command = new ListCommand();
+					page = command.execute(req, resp);
+					break;
+					
+				case "CMD_VIEW":
+					command = new ViewCommand();
 					page = command.execute(req, resp);
 					break;
 			}

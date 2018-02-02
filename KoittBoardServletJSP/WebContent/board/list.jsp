@@ -9,6 +9,8 @@
 <body>
 	<h1>글 목록</h1>
 	
+	<a href="./board/insert-form.jsp">글쓰기</a>
+	
 	<br>
 	
 	<table>
@@ -26,7 +28,11 @@
 			<c:forEach var="board" items="${ requestScope.list }">
 				<tr>
 					<td>${ board.no }</td>
-					<td>${ board.title }</td>
+					<td>
+						<a href="BoardServlet?cmd=CMD_VIEW&no=${ board.no }">
+						${ board.title }
+						</a>
+					</td>
 					<td>${ board.writer }</td>
 					<td>${ board.regdate }</td>
 				</tr>
