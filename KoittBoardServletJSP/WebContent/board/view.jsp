@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,6 @@
 			<!-- th: 테이블헤더 -->
 			<th>번호</th>
 			<!--td: 테이블데이터  -->
-			<!-- ${ >> el -->
 			<!--  requestScope == setAttribute -->
 			<td>${ requestScope.board.no }</td>
 		</tr>
@@ -35,5 +36,12 @@
 			<td>${ requestScope.board.regdate }</td>
 		</tr>
 	</table>
+	
+	<a href="<c:url value='/board/delete-confirm.jsp?no=${ requestScope.board.no }' />">
+	삭제하기
+	</a>
+	
+	<a href="<c:url value='/BoardServlet?cmd=CMD_UPDATE_FORM&no=${ requestScope.board.no }'/>">수정하기</a>
+	
 </body>
 </html>

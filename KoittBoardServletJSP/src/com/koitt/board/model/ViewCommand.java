@@ -12,7 +12,7 @@ public class ViewCommand implements Command {
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp)
-			throws ClassNotFoundException, SQLException {
+			throws ClassNotFoundException, SQLException, IllegalArgumentException, NullPointerException {
 
 		// 1. 포워딩 할 JSP 페이지명
 		String page = "./board/view.jsp";

@@ -31,9 +31,9 @@ public class InsertCommand implements Command {
 		// 5. 4번에서 만든 객체를 Dao로 전달하기 위해 BoardDao 객체 생성
 		BoardDao dao = new BoardDao();
 		
-		// 6. INSERT SQL문 실행하는 BoardDao의 insert 메서드로 4번 Board 객체 전달
+		// 6. INSERT SQL문 실행을 하는 BoardDao의 insert 메소드로 4번 Board 객체 전달
 		dao.insert(board);
-	
+		
 		// 7. 포워딩 할 JSP 페이지를 BoardServlet(Controller)로 전달
 		return page;
 	}
