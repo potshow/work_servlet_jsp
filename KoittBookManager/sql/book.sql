@@ -23,6 +23,6 @@ INSERT INTO book (title, author, publisher, price)
 	VALUES ('제목 테스트 1', '작가 테스트 1', '출판사 테스트 1', 1234);
 	
 INSERT INTO book (title, author, publisher, price, description)
-	VALUES ('제목 테스트 2', '작가 테스트 2', '출판사 테스트 2', 5678, '주석 테스트 1');
+	VALUES ('테스트 75', '테스트 75', '테스트 75', 50000, '주석이 안들어간다는게 사실인가?');
 	
 	SELECT * FROM book;

@@ -17,7 +17,7 @@
 		<label>저자 : <input type="text" name="author"></label><br>
 		<label>출판사 : <input type="text" name="publisher"></label><br>
 		<label>가격 : <input type="text" name="price"></label><br>
-		<label>부가설명 : </label><textarea rows="3" cols="50" name="content"></textarea><br>
+		<label>부가설명 : </label><textarea rows="3" cols="50" name="description"></textarea><br>
 		<input type="submit" value="도서 등록">
 	</form>
 

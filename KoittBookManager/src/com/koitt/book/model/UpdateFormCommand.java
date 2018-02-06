@@ -8,32 +8,33 @@ import javax.servlet.http.HttpServletResponse;
 import com.koitt.book.dao.BookDao;
 import com.koitt.book.vo.Book;
 
-public class ViewCommand implements Command{
+public class UpdateFormCommand implements Command{
 
 	@Override
 	public String execute(HttpServletRequest req, HttpServletResponse resp)
-			throws ClassNotFoundException, SQLException, IllegalAccessException {
-		
-		String page = "./book/view.jsp";
-		
+			throws ClassNotFoundException, SQLException, IllegalArgumentException {
+
+		String page = "./book/update-form.jsp";
+
+
 		String _isbn = req.getParameter("isbn");
-		
+
 		if (_isbn == null || _isbn.trim().length() == 0) {
-			throw new IllegalAccessException("ISBN 번호가 입력되어 있지 않습니다.");
+			throw new IllegalArgumentException("isbn 번호가 필요합니다");
 		}
 		
 		Integer isbn = Integer.parseInt(_isbn);
-		
+
 		BookDao dao = new BookDao();
 		
 		Book book = dao.select(isbn);
 		
 		if (book == null) {
-			throw new NullPointerException("존재하지 않는 ISBN 번호입니다.");
+			throw new NullPointerException("없거나 삭제된 도서정보 입니다.");
 		}
 		
-		req.setAttribute("book", book);
-		
+		req.setAttribute("book",book);
+
 		return page;
 	}
 

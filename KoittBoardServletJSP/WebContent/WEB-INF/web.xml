@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	version="3.1">
 	<!-- 첫페이지 설정 -->
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
-	
+
 	<!-- Controller로 사용할 Servlet 1개 정의 -->
 	<servlet>
 		<servlet-name>BoardServlet</servlet-name>
 		<servlet-class>com.koitt.board.controller.BoardServlet</servlet-class>
 	</servlet>
-	
+
+
 	<servlet-mapping>
 		<servlet-name>BoardServlet</servlet-name>
 		<url-pattern>/BoardServlet</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UsersServlet</servlet-name>
+		<servlet-class>com.koitt.board.controller.UsersServlet</servlet-class>
+	</servlet>
+	
+		<servlet-mapping>
+		<servlet-name>UsersServlet</servlet-name>
+		<url-pattern>/UsersServlet</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 필터 등록 -->
+	<filter>
+		<filter-name>loginCheckFilter</filter-name>
+		<filter-class>com.koitt.board.filter.LoginCheckFilter</filter-class>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>loginCheckFilter</filter-name>
+		<url-pattern>/board/*</url-pattern>
+		<url-pattern>/BoardServlet/*</url-pattern>
+	</filter-mapping>
+	
 </web-app>
